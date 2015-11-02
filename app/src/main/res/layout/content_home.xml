@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:showIn="@layout/activity_home"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomeActivity"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/text_margin"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:id="@+id/reference"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            tools:text="1 Pedro 2:9"
+            />
+
+        <TextView
+            android:id="@+id/verse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+            tools:text="Mas voc&#234;s s&#227;o a ra&#231;a escolhida, os sacerdotes do Rei, a na&#231;&#227;o completamente dedicada a Deus, o povo que pertence a ele. Voc&#234;s foram escolhidos para anunciar os atos poderosos de Deus, que os chamou da escurid&#227;o para a sua maravilhosa luz."
+            />
+
+    </LinearLayout>
+
+</android.support.v4.widget.NestedScrollView>
