@@ -3,14 +3,15 @@
 Daily Bible verses Android app
 
 # Screenshots
-![1]
-![2]
-![3]
+
+<img src="./art/art-01.png" heigth="480" width="272">
+<img src="./art/art-02.png" heigth="480" width="272">
+<img src="./art/art-03.png" heigth="480" width="272">
+
+#Showcase
+
+<iframe src="https://appetize.io/embed/zw2jqykaedt0chm8u27629gbn8?device=nexus5&scale=100&autoplay=false&orientation=portrait&deviceColor=black&language=en" width="400px" height="795px" frameborder="0" scrolling="no"></iframe>
 
 # Download
 
-<a href="https://play.google.com/store/apps/details?id=com.github.filipebezerra.bible.verseoftheday&utm_source=global_co&utm_medium=prtnr&utm_content=Mar2515&utm_campaign=PartBadge&pcampaignid=MKT-AC-global-none-all-co-pr-py-PartBadges-Oct1515-1" target="_blank"><img alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/images/apps/en-play-badge-border.png" /></a>
-
-[1]: ./art/art-01.png
-[2]: ./art/art-02.png
-[3]: ./art/art-03.png
+<a href="https://play.google.com/store/apps/details?id=com.github.filipebezerra.bible.verseoftheday&utm_source=global_co&utm_medium=prtnr&utm_content=Mar2515&utm_campaign=PartBadge&pcampaignid=MKT-AC-global-none-all-co-pr-py-PartBadges-Oct1515-1" target="_blank"><img alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/images/apps/en-play-badge-border.png" heigth="480" width="272"/></a>
