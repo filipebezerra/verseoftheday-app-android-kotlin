@@ -16,21 +16,23 @@
         android:orientation="vertical"
         >
 
-        <TextView
-            android:id="@+id/reference"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:textAppearance="@style/TextAppearance.AppCompat.Title"
-            tools:text="1 Pedro 2:9"
-            />
-
-        <TextView
+        <com.devspark.robototextview.widget.RobotoTextView
             android:id="@+id/verse"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+            android:layout_marginBottom="8dp"
+            app:typeface="roboto_slab_light"
             tools:text="Mas voc&#234;s s&#227;o a ra&#231;a escolhida, os sacerdotes do Rei, a na&#231;&#227;o completamente dedicada a Deus, o povo que pertence a ele. Voc&#234;s foram escolhidos para anunciar os atos poderosos de Deus, que os chamou da escurid&#227;o para a sua maravilhosa luz."
+            />
+
+        <com.devspark.robototextview.widget.RobotoTextView
+            android:id="@+id/reference"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            app:typeface="roboto_thin"
+            tools:text="1 Pedro 2:9"
             />
 
     </LinearLayout>

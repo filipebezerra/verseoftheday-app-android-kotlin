@@ -1,15 +1,16 @@
 apply plugin: 'com.android.application'
+apply plugin: 'me.tatarka.retrolambda'
 
 android {
     compileSdkVersion 23
-    buildToolsVersion "23.0.1"
+    buildToolsVersion "23.0.2"
 
     defaultConfig {
         applicationId "com.github.filipebezerra.bible.verseoftheday"
         minSdkVersion 10
         targetSdkVersion 23
         versionCode 1
-        versionName "0.0.1"
+        versionName "0.1.0"
     }
     buildTypes {
         release {
@@ -17,22 +18,37 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-}
-
-repositories {
-    maven { url 'http://oss.sonatype.org/content/repositories/snapshots'}
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
-    compile 'com.android.support:design:23.1.0'
+    compile 'com.android.support:design:23.1.1'
 
     compile 'com.jakewharton:butterknife:7.0.1'
 
-    compile 'com.squareup.retrofit:retrofit:2.0.0-beta2'
+    compile('com.squareup.retrofit:retrofit:2.0.0-beta2') {
+        exclude module: 'okhttp'
+    }
     compile 'com.squareup.retrofit:converter-gson:2.0.0-beta2'
-    compile 'com.squareup.okhttp:logging-interceptor:2.6.0-SNAPSHOT'
+    compile 'com.squareup.retrofit:adapter-rxjava:2.0.0-beta2'
+
+    compile 'io.reactivex:rxandroid:1.0.1'
+
+    compile 'com.squareup.okhttp:okhttp:2.6.0'
+    compile 'com.squareup.okhttp:logging-interceptor:2.6.0'
 
     compile 'org.unbescape:unbescape:1.1.1.RELEASE'
 
+    compile 'com.github.johnkil.android-robototextview:robototextview:2.4.3'
+
     testCompile 'junit:junit:4.12'
+}
+
+retrolambda {
+    jdk System.getenv("JAVA8_HOME")
+    oldJdk System.getenv("JAVA_HOME")
+    javaVersion JavaVersion.VERSION_1_7
 }
