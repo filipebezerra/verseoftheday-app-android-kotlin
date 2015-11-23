@@ -8,9 +8,9 @@ Daily Bible verses Android app
 <img src="./art/art-02.png" heigth="480" width="272">
 <img src="./art/art-03.png" heigth="480" width="272">
 
-#Showcase
+#Live
 
-<iframe src="https://appetize.io/embed/zw2jqykaedt0chm8u27629gbn8?device=nexus5&scale=100&autoplay=false&orientation=portrait&deviceColor=black&language=en" width="400px" height="795px" frameborder="0" scrolling="no"></iframe>
+[View app live running in the cloud](https://appetize.io/app/zw2jqykaedt0chm8u27629gbn8?device=nexus5&scale=75&orientation=portrait&osVersion=6.0&autoplay=true)
 
 # Download
 
