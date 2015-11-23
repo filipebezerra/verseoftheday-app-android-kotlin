@@ -1,16 +1,24 @@
+apply from: '../buildsystem/android.gradle'
+apply from: '../buildsystem/dependencies.gradle'
+apply from: '../buildsystem/ci.gradle'
+
 apply plugin: 'com.android.application'
 apply plugin: 'me.tatarka.retrolambda'
 
-android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.2"
+if (project.hasProperty("FbsRelease2.signing")
+        && new File(project.property("FbsRelease2.signing") + ".gradle").exists()) {
+    apply from: project.property("FbsRelease2.signing") + ".gradle";
+}
 
+android {
+    compileSdkVersion androidCompileSdkVersion
+    buildToolsVersion androidBuildToolsVersion
     defaultConfig {
-        applicationId "com.github.filipebezerra.bible.verseoftheday"
-        minSdkVersion 10
-        targetSdkVersion 23
-        versionCode 1
-        versionName "0.1.0"
+        applicationId androidApplicationId
+        minSdkVersion androidMinSdkVersion
+        targetSdkVersion androidTargetSdkVersion
+        versionCode androidVersionCode
+        versionName androidVersionName
     }
     buildTypes {
         release {
@@ -25,26 +33,18 @@ android {
 }
 
 dependencies {
-    compile 'com.android.support:design:23.1.1'
+    compile libs.supportDesign
+    compile libs.butterKnife
+    compile(libs.retrofit) { exclude module: 'okhttp' }
+    compile libs.retrofitGsonConverter
+    compile libs.retrofitRxJavaAdapter
+    compile libs.rxAndroid
+    compile libs.okHttp
+    compile libs.okHttpLoggingInterceptor
+    compile libs.unbescape
+    compile libs.robototextview
 
-    compile 'com.jakewharton:butterknife:7.0.1'
-
-    compile('com.squareup.retrofit:retrofit:2.0.0-beta2') {
-        exclude module: 'okhttp'
-    }
-    compile 'com.squareup.retrofit:converter-gson:2.0.0-beta2'
-    compile 'com.squareup.retrofit:adapter-rxjava:2.0.0-beta2'
-
-    compile 'io.reactivex:rxandroid:1.0.1'
-
-    compile 'com.squareup.okhttp:okhttp:2.6.0'
-    compile 'com.squareup.okhttp:logging-interceptor:2.6.0'
-
-    compile 'org.unbescape:unbescape:1.1.1.RELEASE'
-
-    compile 'com.github.johnkil.android-robototextview:robototextview:2.4.3'
-
-    testCompile 'junit:junit:4.12'
+    testCompile unitTests.junit
 }
 
 retrolambda {

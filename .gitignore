@@ -29,4 +29,3 @@ proguard/
 
 # Keystore
 *.jks
-gradle.properties
