@@ -18,6 +18,7 @@ public class Votd {
     public String day;
     public String month;
     public String year;
+    public String locale;
 
     @Override
     public boolean equals(Object o) {
@@ -26,7 +27,8 @@ public class Votd {
 
             return this.year.equals(another.year) &&
                     this.month.equals(another.month) &&
-                    this.day.equals(another.day);
+                    this.day.equals(another.day) &&
+                    this.locale.equals(another.locale);
         }
         return false;
     }
