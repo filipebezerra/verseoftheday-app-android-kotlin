@@ -1,7 +1,7 @@
 ext {
     androidApplicationId = 'com.github.filipebezerra.bible.verseoftheday'
-    androidVersionCode = 11
-    androidVersionName = '0.1.1'
+    androidVersionCode = 21
+    androidVersionName = '0.2.1'
 
     androidBuildToolsVersion = '23.0.2'
     androidMinSdkVersion = 10
