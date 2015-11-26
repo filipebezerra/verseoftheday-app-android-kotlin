@@ -41,6 +41,7 @@ public class HomeActivity extends AppCompatActivity {
 
     @Bind(R.id.reference) TextView mReferenceTextView;
     @Bind(R.id.verse) TextView mVerseTextView;
+    @Bind(R.id.version) TextView mVersionView;
 
     private BibleGatewayService mBibleGatewayService;
 
@@ -130,6 +131,7 @@ public class HomeActivity extends AppCompatActivity {
     public void bindVerseToUi(Votd verse) {
         mReferenceTextView.setText(verse.displayRef);
         mVerseTextView.setText(HtmlEscape.unescapeHtml(verse.text));
+        mVersionView.setText(HtmlEscape.unescapeHtml(verse.version));
     }
 
     public void bindErrorToUi(String error) {

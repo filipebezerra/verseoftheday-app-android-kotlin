@@ -23,6 +23,7 @@ public class PreferencesUtil {
     private static final String PREF_MONTH_OF_VERSE = "month";
     private static final String PREF_DAY_OF_VERSE = "day";
     private static final String PREF_LANGUAGE = "language";
+    private static final String PREF_VERSION = "version";
 
     private PreferencesUtil() {
         // no instances
@@ -33,7 +34,8 @@ public class PreferencesUtil {
                 !TextUtils.isEmpty(verse.displayRef) &&
                 !TextUtils.isEmpty(verse.year) &&
                 !TextUtils.isEmpty(verse.month) &&
-                !TextUtils.isEmpty(verse.day)) {
+                !TextUtils.isEmpty(verse.day) &&
+                !TextUtils.isEmpty(verse.version)) {
 
             // getting the current language configuration
             final String language = ResourcesUtil.getCurrentLanguage(context);
@@ -47,6 +49,7 @@ public class PreferencesUtil {
             editor.putString(PREF_MONTH_OF_VERSE, verse.month);
             editor.putString(PREF_DAY_OF_VERSE, verse.day);
             editor.putString(PREF_LANGUAGE, language);
+            editor.putString(PREF_VERSION, verse.version);
 
             SharedPreferencesCompat.EditorCompat.getInstance().apply(editor);
         }
@@ -62,6 +65,7 @@ public class PreferencesUtil {
             verse.year = preferences.getString(PREF_YEAR_OF_VERSE, "");
             verse.month = preferences.getString(PREF_MONTH_OF_VERSE, "");
             verse.day = preferences.getString(PREF_DAY_OF_VERSE, "");
+            verse.version = preferences.getString(PREF_VERSION, "");
 
             try {
                 if (!DateUtil.isToday(verse.year, verse.month, verse.day) ||
@@ -82,7 +86,8 @@ public class PreferencesUtil {
                 preferences.contains(PREF_DAY_OF_VERSE) &&
                 preferences.contains(PREF_MONTH_OF_VERSE) &&
                 preferences.contains(PREF_YEAR_OF_VERSE) &&
-                preferences.contains(PREF_LANGUAGE);
+                preferences.contains(PREF_LANGUAGE) &&
+                preferences.contains(PREF_VERSION);
     }
 
     private static boolean isSameLanguage(@NonNull SharedPreferences preferences,
