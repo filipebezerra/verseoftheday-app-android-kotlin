@@ -8,4 +8,5 @@
         you are reading.\n\nBut detected that you\'re offline, so it will be impossible to
         do this until you connect.
     </string>
+    <string name="connected_to_internet">You are connected to the internet!</string>
 </resources>

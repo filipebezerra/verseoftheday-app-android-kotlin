@@ -10,4 +10,5 @@
         dia que você for ler.\n\nMas detectamos que você está desconectado, portanto será
         impossível fazer isto até você se conectar.
     </string>
+    <string name="connected_to_internet">Você está conectado à internet!</string>
 </resources>

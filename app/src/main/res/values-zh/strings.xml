@@ -8,4 +8,5 @@
         我們利用互聯網僅在第一次下載當天的詩句你正在閱讀的一天。
         \n\n但檢測到您處於離線狀態，所以直到您連接就不可能做到這一點。
     </string>
+    <string name="connected_to_internet">您已連接到互聯網！</string>
 </resources>

@@ -9,4 +9,5 @@
         día que está leyendo.\n\nPero detectado que estás fuera de línea, por lo que será
         imposible hacer esto hasta que se conecte.
     </string>
+    <string name="connected_to_internet">Usted esta conectado a la Internet!</string>
 </resources>

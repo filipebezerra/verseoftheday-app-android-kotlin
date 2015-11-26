@@ -1,6 +1,9 @@
 package com.github.filipebezerra.bible.verseoftheday.home;
 
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.util.Pair;
 import android.support.v7.app.AppCompatActivity;
@@ -13,6 +16,9 @@ import com.github.filipebezerra.bible.verseoftheday.R;
 import com.github.filipebezerra.bible.verseoftheday.api.BibleGatewayApiController;
 import com.github.filipebezerra.bible.verseoftheday.html.UnscapeHtmlTask;
 import com.github.filipebezerra.bible.verseoftheday.html.UnscapeHtmlTask.HtmlUnescapedListener;
+import com.github.filipebezerra.bible.verseoftheday.network.NetworkChangeReceiver;
+import com.github.filipebezerra.bible.verseoftheday.network.NetworkChangeReceiver.NetworkConnectionRestoredListener;
+import com.github.filipebezerra.bible.verseoftheday.snackbar.SnackbarHelper;
 import com.github.filipebezerra.bible.verseoftheday.utils.IntentUtil;
 import com.github.filipebezerra.bible.verseoftheday.utils.NetworkUtil;
 import com.github.filipebezerra.bible.verseoftheday.utils.PreferencesUtil;
@@ -31,10 +37,14 @@ import rx.schedulers.Schedulers;
  * @version #, 02/11/2015
  * @since #
  */
-public class HomeActivity extends AppCompatActivity implements HtmlUnescapedListener {
+public class HomeActivity extends AppCompatActivity
+        implements HtmlUnescapedListener, NetworkConnectionRestoredListener {
     @Bind(R.id.reference) TextView mReferenceTextView;
     @Bind(R.id.verse) TextView mVerseTextView;
     @Bind(R.id.version) TextView mVersionView;
+    @Bind(R.id.root_layout) CoordinatorLayout mRootLayout;
+
+    private NetworkChangeReceiver mNetworkChangeReceiver;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,15 +72,43 @@ public class HomeActivity extends AppCompatActivity implements HtmlUnescapedList
             bindVerseToUi(verse);
         } else {
             if (NetworkUtil.isDeviceConnectedToInternet(this)) {
-                BibleGatewayApiController.instance(this)
-                        .getVerseOfTheDay("json", getString(R.string.bible_version))
-                        .subscribeOn(Schedulers.newThread())
-                        .observeOn(AndroidSchedulers.mainThread())
-                        .subscribe(new VerseOfTheDaySubscriber());
+                requestVerseOfTheDay();
             } else {
                 bindErrorToUi(getString(R.string.error_disconnected_from_internet));
+
+                registerReceiver(mNetworkChangeReceiver = new NetworkChangeReceiver(this),
+                        new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
             }
         }
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+
+        if (mNetworkChangeReceiver != null) {
+            unregisterReceiver(mNetworkChangeReceiver);
+        }
+    }
+
+    @Override
+    public void onNetworkRestored() {
+        SnackbarHelper.showShort(mRootLayout, getString(R.string.connected_to_internet));
+
+        if (mNetworkChangeReceiver != null) {
+            unregisterReceiver(mNetworkChangeReceiver);
+            mNetworkChangeReceiver = null;
+        }
+
+        requestVerseOfTheDay();
+    }
+
+    private void requestVerseOfTheDay() {
+        BibleGatewayApiController.instance(this)
+                .getVerseOfTheDay("json", getString(R.string.bible_version))
+                .subscribeOn(Schedulers.newThread())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new VerseOfTheDaySubscriber());
     }
 
     private class VerseOfTheDaySubscriber extends Subscriber<VotdResponse> {
