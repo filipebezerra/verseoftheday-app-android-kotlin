@@ -2,6 +2,7 @@ package com.github.filipebezerra.bible.verseoftheday.home;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.util.Pair;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -10,6 +11,8 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import com.github.filipebezerra.bible.verseoftheday.R;
 import com.github.filipebezerra.bible.verseoftheday.api.BibleGatewayService;
+import com.github.filipebezerra.bible.verseoftheday.html.UnscapeHtmlTask;
+import com.github.filipebezerra.bible.verseoftheday.html.UnscapeHtmlTask.HtmlUnescapedListener;
 import com.github.filipebezerra.bible.verseoftheday.utils.IntentUtil;
 import com.github.filipebezerra.bible.verseoftheday.utils.PreferencesUtil;
 import com.github.filipebezerra.bible.verseoftheday.votd.Votd;
@@ -19,8 +22,8 @@ import com.squareup.okhttp.Cache;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.logging.HttpLoggingInterceptor;
 import java.io.File;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
-import org.unbescape.html.HtmlEscape;
 import retrofit.GsonConverterFactory;
 import retrofit.Retrofit;
 import retrofit.RxJavaCallAdapterFactory;
@@ -35,7 +38,7 @@ import rx.schedulers.Schedulers;
  * @version #, 02/11/2015
  * @since #
  */
-public class HomeActivity extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity implements HtmlUnescapedListener {
     public static final long HTTP_CACHE_SIZE = 10 * 1024 * 1024;
     public static final String HTTP_CACHE_FILE_NAME = "http";
 
@@ -130,8 +133,23 @@ public class HomeActivity extends AppCompatActivity {
 
     public void bindVerseToUi(Votd verse) {
         mReferenceTextView.setText(verse.displayRef);
-        mVerseTextView.setText(HtmlEscape.unescapeHtml(verse.text));
-        mVersionView.setText(HtmlEscape.unescapeHtml(verse.version));
+        //noinspection unchecked
+        new UnscapeHtmlTask(this).execute(
+                Pair.create(R.id.verse, verse.text), Pair.create(R.id.version, verse.version));
+    }
+
+    @Override
+    public void onHtmlUnescaped(List<Pair<Integer, String>> htmls) {
+        for (Pair<Integer, String> html : htmls) {
+            switch (html.first) {
+                case R.id.verse:
+                    mVerseTextView.setText(html.second);
+                    break;
+                case R.id.version:
+                    mVersionView.setText(html.second);
+                    break;
+            }
+        }
     }
 
     public void bindErrorToUi(String error) {
