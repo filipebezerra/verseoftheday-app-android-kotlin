@@ -13,6 +13,8 @@ import rx.Observable;
  * @since #
  */
 public interface BibleGatewayService {
+    String API_BASE_URL = "https://www.biblegateway.com/";
+
     @GET("votd/get")
     Observable<VotdResponse> getVerseOfTheDay(
             @Query("format") String format, @Query("version") String version);
