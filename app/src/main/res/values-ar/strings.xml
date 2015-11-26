@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="bible_version">NAV</string>
+    <string name="error_state">آسف، كان لدينا الفشل ولم يتم تحميل الآية من اليوم!</string>
+    <string name="share_dialog_title">شارك مع أصدقائك</string>
+    <string name="app_name">آية اليوم</string>
+</resources>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="bible_version">ERV-HI</string>
+    <string name="app_name">आज का वचन</string>
+    <string name="error_state">क्षमा करें, हम एक विफलता थी और दिन की कविता लोड नहीं किया गया!</string>
+    <string name="share_dialog_title">अपने दोस्तों के साथ साझा करें</string>
+</resources>

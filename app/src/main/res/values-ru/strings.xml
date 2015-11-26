@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="bible_version">ERV-RU</string>
+    <string name="app_name">Стих дня</string>
+    <string name="error_state">К сожалению, у нас был провал, и стих дня не был загружен!</string>
+    <string name="share_dialog_title">Поделиться с друзьями</string>
+</resources>

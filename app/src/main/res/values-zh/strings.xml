@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="bible_version">CSBT</string>
+    <string name="app_name">今天的詩句</string>
+    <string name="error_state">對不起，我們有一個故障，並沒有被加載的一天詩句！</string>
+    <string name="share_dialog_title">與朋友分享</string>
+</resources>

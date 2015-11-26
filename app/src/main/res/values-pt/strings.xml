@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="bible_version">ARC</string>
     <string name="app_name">Versículo do Dia</string>
-    <string name="share_dialog_title">Compartilhe com seus amigos</string>
     <string name="error_state">Desculpe, ocorreu uma falha e o versículo do dia não foi carregado!</string>
+    <string name="share_dialog_title">Compartilhe com seus amigos</string>
 </resources>

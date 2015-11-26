@@ -1,4 +1,4 @@
-package com.github.filipebezerra.bible.verseoftheday.votd;
+package com.github.filipebezerra.bible.verseoftheday.home;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -8,15 +8,16 @@ import android.util.Log;
 import android.widget.TextView;
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import com.github.filipebezerra.bible.verseoftheday.api.BibleGatewayService;
-import com.github.filipebezerra.bible.verseoftheday.utils.PreferencesUtil;
 import com.github.filipebezerra.bible.verseoftheday.R;
+import com.github.filipebezerra.bible.verseoftheday.api.BibleGatewayService;
 import com.github.filipebezerra.bible.verseoftheday.utils.IntentUtil;
+import com.github.filipebezerra.bible.verseoftheday.utils.PreferencesUtil;
+import com.github.filipebezerra.bible.verseoftheday.votd.Votd;
+import com.github.filipebezerra.bible.verseoftheday.votd.VotdResponse;
 import com.squareup.okhttp.Cache;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.logging.HttpLoggingInterceptor;
 import java.io.File;
-import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 import org.unbescape.html.HtmlEscape;
 import retrofit.GsonConverterFactory;
@@ -25,8 +26,6 @@ import retrofit.RxJavaCallAdapterFactory;
 import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
-
-import static com.github.filipebezerra.bible.verseoftheday.versions.BibleGatewayAvailableVersions.getVersionByLanguage;
 
 /**
  * .
@@ -89,13 +88,6 @@ public class HomeActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        String language;
-        if (Locale.getDefault().getLanguage().equals("pt")) {
-            language = "pt";
-        } else {
-            language = "en";
-        }
-
         final Votd verse = PreferencesUtil.getVerse(this);
 
         if (verse != null) {
@@ -105,7 +97,8 @@ public class HomeActivity extends AppCompatActivity {
             }
         }
 
-        mBibleGatewayService.getVerseOfTheDay("json", getVersionByLanguage(language))
+        mBibleGatewayService
+                .getVerseOfTheDay("json", getString(R.string.bible_version))
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new VerseOfTheDaySubscriber());

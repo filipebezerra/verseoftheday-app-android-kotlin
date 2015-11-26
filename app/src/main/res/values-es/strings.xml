@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="bible_version">NVI</string>
+    <string name="app_name">Versículo del Día</string>
+    <string name="error_state">Lo sentimos, ha ocurrido un fallo y el versículo del día no estaba cargada!</string>
+    <string name="share_dialog_title">Comparte con tus amigos</string>
+</resources>
