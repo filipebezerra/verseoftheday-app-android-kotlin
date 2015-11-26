@@ -9,4 +9,10 @@ package com.github.filipebezerra.bible.verseoftheday.votd;
  */
 public class VotdResponse {
     public Votd votd;
+    public Error error;
+
+    public static class Error {
+        public String code;
+        public String message;
+    }
 }

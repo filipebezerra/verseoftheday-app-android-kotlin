@@ -13,6 +13,7 @@ import com.github.filipebezerra.bible.verseoftheday.api.BibleGatewayService;
 import com.github.filipebezerra.bible.verseoftheday.utils.IntentUtil;
 import com.github.filipebezerra.bible.verseoftheday.utils.PreferencesUtil;
 import com.github.filipebezerra.bible.verseoftheday.votd.Votd;
+import com.github.filipebezerra.bible.verseoftheday.votd.VotdError;
 import com.github.filipebezerra.bible.verseoftheday.votd.VotdResponse;
 import com.squareup.okhttp.Cache;
 import com.squareup.okhttp.OkHttpClient;
@@ -38,8 +39,8 @@ public class HomeActivity extends AppCompatActivity {
     public static final long HTTP_CACHE_SIZE = 10 * 1024 * 1024;
     public static final String HTTP_CACHE_FILE_NAME = "http";
 
-    @Bind(R.id.reference)TextView mReferenceTextView;
-    @Bind(R.id.verse)TextView mVerseTextView;
+    @Bind(R.id.reference) TextView mReferenceTextView;
+    @Bind(R.id.verse) TextView mVerseTextView;
 
     private BibleGatewayService mBibleGatewayService;
 
@@ -91,26 +92,27 @@ public class HomeActivity extends AppCompatActivity {
         final Votd verse = PreferencesUtil.getVerse(this);
 
         if (verse != null) {
-            if (PreferencesUtil.isVerseFromSameDay(this, verse)) {
-                bindVerseToUi(verse);
-                return;
-            }
+            bindVerseToUi(verse);
+        } else {
+            mBibleGatewayService
+                    .getVerseOfTheDay("json", getString(R.string.bible_version))
+                    .subscribeOn(Schedulers.newThread())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(new VerseOfTheDaySubscriber());
         }
-
-        mBibleGatewayService
-                .getVerseOfTheDay("json", getString(R.string.bible_version))
-                .subscribeOn(Schedulers.newThread())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new VerseOfTheDaySubscriber());
     }
 
     private class VerseOfTheDaySubscriber extends Subscriber<VotdResponse> {
-        private Votd mVerse;
+        private VotdResponse mVotdResponse;
 
         @Override
         public void onCompleted() {
-            bindVerseToUi(mVerse);
-            PreferencesUtil.putVerse(HomeActivity.this, mVerse);
+            if (mVotdResponse.error == null) {
+                bindVerseToUi(mVotdResponse.votd);
+                PreferencesUtil.putVerse(HomeActivity.this, mVotdResponse.votd);
+            } else {
+                onError(new VotdError(mVotdResponse.error));
+            }
         }
 
         @Override
@@ -121,7 +123,7 @@ public class HomeActivity extends AppCompatActivity {
 
         @Override
         public void onNext(VotdResponse votdResponse) {
-            mVerse = votdResponse.votd;
+            mVotdResponse = votdResponse;
         }
     }
 
