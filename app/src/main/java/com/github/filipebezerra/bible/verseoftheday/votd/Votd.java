@@ -1,4 +1,4 @@
-package com.github.filipebezerra.bible.verseoftheday;
+package com.github.filipebezerra.bible.verseoftheday.votd;
 
 import com.google.gson.annotations.SerializedName;
 

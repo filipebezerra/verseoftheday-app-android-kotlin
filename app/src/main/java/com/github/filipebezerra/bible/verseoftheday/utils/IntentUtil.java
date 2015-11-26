@@ -1,9 +1,10 @@
-package com.github.filipebezerra.bible.verseoftheday;
+package com.github.filipebezerra.bible.verseoftheday.utils;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.support.annotation.NonNull;
+import com.github.filipebezerra.bible.verseoftheday.R;
 
 /**
  * .

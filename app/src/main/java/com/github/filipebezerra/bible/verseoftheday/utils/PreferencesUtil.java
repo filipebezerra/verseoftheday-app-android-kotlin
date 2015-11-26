@@ -1,4 +1,4 @@
-package com.github.filipebezerra.bible.verseoftheday;
+package com.github.filipebezerra.bible.verseoftheday.utils;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -6,6 +6,7 @@ import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.v4.content.SharedPreferencesCompat;
 import android.text.TextUtils;
+import com.github.filipebezerra.bible.verseoftheday.votd.Votd;
 
 /**
  * .

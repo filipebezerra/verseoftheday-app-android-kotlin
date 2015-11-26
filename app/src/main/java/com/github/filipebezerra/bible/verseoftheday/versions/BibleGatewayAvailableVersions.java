@@ -1,4 +1,4 @@
-package com.github.filipebezerra.bible.verseoftheday;
+package com.github.filipebezerra.bible.verseoftheday.versions;
 
 import java.util.Collections;
 import java.util.HashMap;

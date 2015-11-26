@@ -1,4 +1,4 @@
-package com.github.filipebezerra.bible.verseoftheday;
+package com.github.filipebezerra.bible.verseoftheday.votd;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -8,6 +8,10 @@ import android.util.Log;
 import android.widget.TextView;
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import com.github.filipebezerra.bible.verseoftheday.api.BibleGatewayService;
+import com.github.filipebezerra.bible.verseoftheday.utils.PreferencesUtil;
+import com.github.filipebezerra.bible.verseoftheday.R;
+import com.github.filipebezerra.bible.verseoftheday.utils.IntentUtil;
 import com.squareup.okhttp.Cache;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.logging.HttpLoggingInterceptor;
@@ -22,7 +26,7 @@ import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
-import static com.github.filipebezerra.bible.verseoftheday.BibleGatewayAvailableVersions.getVersionByLanguage;
+import static com.github.filipebezerra.bible.verseoftheday.versions.BibleGatewayAvailableVersions.getVersionByLanguage;
 
 /**
  * .

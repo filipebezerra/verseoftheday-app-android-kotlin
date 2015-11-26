@@ -1,5 +1,6 @@
-package com.github.filipebezerra.bible.verseoftheday;
+package com.github.filipebezerra.bible.verseoftheday.api;
 
+import com.github.filipebezerra.bible.verseoftheday.votd.VotdResponse;
 import retrofit.http.GET;
 import retrofit.http.Query;
 import rx.Observable;
