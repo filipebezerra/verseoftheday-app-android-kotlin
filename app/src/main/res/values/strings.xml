@@ -3,4 +3,9 @@
     <string name="share_dialog_title">Share with your friends</string>
     <string name="error_state">Sorry, we had a failure and verse of the day was not loaded!</string>
     <string name="bible_version">ESV</string>
+    <string name="error_disconnected_from_internet">
+        We use the Internet to download the verse of the day only the first time on the day
+        you are reading.\n\nBut detected that you\'re offline, so it will be impossible to
+        do this until you connect.
+    </string>
 </resources>

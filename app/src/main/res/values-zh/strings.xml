@@ -4,4 +4,8 @@
     <string name="app_name">今天的詩句</string>
     <string name="error_state">對不起，我們有一個故障，並沒有被加載的一天詩句！</string>
     <string name="share_dialog_title">與朋友分享</string>
+    <string name="error_disconnected_from_internet">
+        我們利用互聯網僅在第一次下載當天的詩句你正在閱讀的一天。
+        \n\n但檢測到您處於離線狀態，所以直到您連接就不可能做到這一點。
+    </string>
 </resources>

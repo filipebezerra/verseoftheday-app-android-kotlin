@@ -14,6 +14,7 @@ import com.github.filipebezerra.bible.verseoftheday.api.BibleGatewayApiControlle
 import com.github.filipebezerra.bible.verseoftheday.html.UnscapeHtmlTask;
 import com.github.filipebezerra.bible.verseoftheday.html.UnscapeHtmlTask.HtmlUnescapedListener;
 import com.github.filipebezerra.bible.verseoftheday.utils.IntentUtil;
+import com.github.filipebezerra.bible.verseoftheday.utils.NetworkUtil;
 import com.github.filipebezerra.bible.verseoftheday.utils.PreferencesUtil;
 import com.github.filipebezerra.bible.verseoftheday.votd.Votd;
 import com.github.filipebezerra.bible.verseoftheday.votd.VotdError;
@@ -60,11 +61,15 @@ public class HomeActivity extends AppCompatActivity implements HtmlUnescapedList
         if (verse != null) {
             bindVerseToUi(verse);
         } else {
-            BibleGatewayApiController.instance(this)
-                    .getVerseOfTheDay("json", getString(R.string.bible_version))
-                    .subscribeOn(Schedulers.newThread())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe(new VerseOfTheDaySubscriber());
+            if (NetworkUtil.isDeviceConnectedToInternet(this)) {
+                BibleGatewayApiController.instance(this)
+                        .getVerseOfTheDay("json", getString(R.string.bible_version))
+                        .subscribeOn(Schedulers.newThread())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe(new VerseOfTheDaySubscriber());
+            } else {
+                bindErrorToUi(getString(R.string.error_disconnected_from_internet));
+            }
         }
     }
 

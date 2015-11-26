@@ -4,4 +4,9 @@
     <string name="app_name">Стих дня</string>
     <string name="error_state">К сожалению, у нас был провал, и стих дня не был загружен!</string>
     <string name="share_dialog_title">Поделиться с друзьями</string>
+    <string name="error_disconnected_from_internet">
+        Мы используем Интернет для загрузки Стих дня только в первый раз на день,который
+        вы читаете.\n\nНо обнаружил, что вы в автономном режиме, так что это будет
+        невозможно сделать это, пока вы не подключите.
+    </string>
 </resources>

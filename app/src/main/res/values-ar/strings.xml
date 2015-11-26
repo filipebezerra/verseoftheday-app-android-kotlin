@@ -4,4 +4,9 @@
     <string name="error_state">آسف، كان لدينا الفشل ولم يتم تحميل الآية من اليوم!</string>
     <string name="share_dialog_title">شارك مع أصدقائك</string>
     <string name="app_name">آية اليوم</string>
+    <string name="error_disconnected_from_internet">
+        نحن نستخدم الإنترنت لتنزيل الآية من اليوم فقط في المرة الأولى يوم كنت تقرأ.
+\n\n
+ولكن الكشف عن أنك حاليا، لذلك سيكون من المستحيل أن تفعل هذا حتى قمت بالاتصال.
+    </string>
 </resources>

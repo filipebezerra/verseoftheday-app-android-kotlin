@@ -4,4 +4,9 @@
     <string name="app_name">Versículo del Día</string>
     <string name="error_state">Lo sentimos, ha ocurrido un fallo y el versículo del día no estaba cargada!</string>
     <string name="share_dialog_title">Comparte con tus amigos</string>
+    <string name="error_disconnected_from_internet">
+        Utilizamos Internet para descargar el versículo del día sólo la primera vez en el
+        día que está leyendo.\n\nPero detectado que estás fuera de línea, por lo que será
+        imposible hacer esto hasta que se conecte.
+    </string>
 </resources>
