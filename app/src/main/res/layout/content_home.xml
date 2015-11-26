@@ -47,7 +47,8 @@
             android:layout_alignBaseline="@id/reference"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
             app:typeface="roboto_thin"
-            tools:text="Almeida Revista e Corrigida 2009"
+            tools:text="Nova Tradução na Linguagem de Hoje 2000"
+            android:gravity="right|end"
             />
 
     </RelativeLayout>
