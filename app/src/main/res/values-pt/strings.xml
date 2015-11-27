@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Versículo do Dia</string>
+    <string name="error_state">Desculpe, ocorreu uma falha e o versículo do dia não foi carregado!</string>
+    <string name="share_dialog_title">Compartilhe com seus amigos</string>
+
+    <string name="bible_version">ARC</string>
+    <string name="error_disconnected_from_internet">
+        Nós utilizamos a internet para baixar o versículo do dia somente na primeira vez no
+        dia que você for ler.\n\nMas detectamos que você está desconectado, portanto será
+        impossível fazer isto até você se conectar.
+    </string>
+    <string name="connected_to_internet">Você está conectado à internet!</string>
+</resources>

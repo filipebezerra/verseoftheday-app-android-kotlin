@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="bible_version">ERV-HI</string>
+    <string name="app_name">आज का वचन</string>
+    <string name="error_state">क्षमा करें, हम एक विफलता थी और दिन की कविता लोड नहीं किया गया!</string>
+    <string name="share_dialog_title">अपने दोस्तों के साथ साझा करें</string>
+    <string name="error_disconnected_from_internet">
+        हम आप पढ़ रहे हैं दिन पर दिन की कविता केवल पहली बार डाउनलोड करने के लिए इंटरनेट का इस्तेमाल करते हैं।
+
+        \n\nलेकिन आप ऑफ़लाइन हो कि पता लगाया है, तो आप कनेक्ट जब तक यह यह करने के लिए असंभव हो जाएगा।
+    </string>
+    <string name="connected_to_internet">आप इंटरनेट से कनेक्ट कर रहे हैं!</string>
+</resources>

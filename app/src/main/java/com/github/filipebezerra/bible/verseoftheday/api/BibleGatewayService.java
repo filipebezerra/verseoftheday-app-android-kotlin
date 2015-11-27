@@ -1,5 +1,6 @@
-package com.github.filipebezerra.bible.verseoftheday;
+package com.github.filipebezerra.bible.verseoftheday.api;
 
+import com.github.filipebezerra.bible.verseoftheday.votd.VotdResponse;
 import retrofit.http.GET;
 import retrofit.http.Query;
 import rx.Observable;
@@ -12,6 +13,8 @@ import rx.Observable;
  * @since #
  */
 public interface BibleGatewayService {
+    String API_BASE_URL = "https://www.biblegateway.com/";
+
     @GET("votd/get")
     Observable<VotdResponse> getVerseOfTheDay(
             @Query("format") String format, @Query("version") String version);

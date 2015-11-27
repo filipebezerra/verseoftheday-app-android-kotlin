@@ -6,14 +6,13 @@
     tools:showIn="@layout/activity_home"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeActivity"
+    tools:context=".home.HomeActivity"
     >
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/text_margin"
-        android:orientation="vertical"
         >
 
         <com.devspark.robototextview.widget.RobotoTextView
@@ -30,11 +29,28 @@
             android:id="@+id/reference"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@id/verse"
+            android:layout_marginRight="8dp"
+            android:layout_marginEnd="8dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Title"
             app:typeface="roboto_thin"
             tools:text="1 Pedro 2:9"
             />
 
-    </LinearLayout>
+        <com.devspark.robototextview.widget.RobotoTextView
+            android:id="@+id/version"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/verse"
+            android:layout_toRightOf="@id/reference"
+            android:layout_toEndOf="@id/reference"
+            android:layout_alignBaseline="@id/reference"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+            app:typeface="roboto_thin"
+            tools:text="Nova Tradução na Linguagem de Hoje 2000"
+            android:gravity="right|end"
+            />
+
+    </RelativeLayout>
 
 </android.support.v4.widget.NestedScrollView>
