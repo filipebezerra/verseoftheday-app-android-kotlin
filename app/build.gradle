@@ -30,6 +30,13 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    lintOptions {
+        disable 'InvalidPackage'
+        abortOnError false
+    }
+    packagingOptions {
+        exclude 'META-INF/services/javax.annotation.processing.Processor'
+    }
 }
 
 dependencies {
@@ -51,4 +58,18 @@ retrolambda {
     jdk System.getenv("JAVA8_HOME")
     oldJdk System.getenv("JAVA_HOME")
     javaVersion JavaVersion.VERSION_1_7
+}
+
+android.applicationVariants.all{ variant ->
+    variant.mergeAssets.doFirst {
+        File fonts = file("${projectDir}/build/intermediates/exploded-aar/com.github.johnkil.android-robototextview/robototextview/${robototextviewVersion}/assets/fonts")
+        if (fonts.exists()) {
+            for (File file : fonts.listFiles()) {
+                if (!file.getName().contains("RobotoSlab-Light")&&!file.getName().contains("Roboto-Thin")) {
+                    println("delete " + file.getName() + " font")
+                    file.delete()
+                };
+            }
+        }
+    }
 }
