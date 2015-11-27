@@ -2,11 +2,11 @@
 
 Daily Bible verses Android app
 
-# Screenshots
+# Showcase
 
-<img src="./art/art-01.png" heigth="480" width="272">
-<img src="./art/art-02.png" heigth="480" width="272">
-<img src="./art/art-03.png" heigth="480" width="272">
+<img src="./art/Screenshots/en/en-01.png" heigth="480" width="272">
+<img src="./art/Screenshots/en/en-02.png" heigth="480" width="272">
+<img src="./art/Screenshots/en/en-03.png" heigth="480" width="272">
 
 #Live
 
