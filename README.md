@@ -1,5 +1,7 @@
 # Verse Of TheDay [![Build Status](https://travis-ci.org/filipebezerra/VerseOfTheDay.svg?branch=master)](https://travis-ci.org/filipebezerra/VerseOfTheDay)
 
+[![Join the chat at https://gitter.im/filipebezerra/VerseOfTheDay](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/filipebezerra/VerseOfTheDay?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Daily Bible verses Android app
 
 # Showcase
