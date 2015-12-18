@@ -16,7 +16,7 @@ Daily Bible verses Android app
 
 #Live
 
-[View app live running in the cloud](https://appetize.io/app/zw2jqykaedt0chm8u27629gbn8?device=nexus5&scale=75&orientation=portrait&osVersion=6.0&autoplay=true)
+<a href="https://appetize.io/app/zw2jqykaedt0chm8u27629gbn8?device=nexus5&scale=75&orientation=portrait&osVersion=6.0&autoplay=true" target="_blank"><img src="./art/Live/Appetize-Nexus5.PNG" heigth="320" width="163"></a>
 
 # Download
 
