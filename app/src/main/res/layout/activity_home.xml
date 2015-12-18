@@ -15,6 +15,7 @@
         android:layout_height="@dimen/app_bar_height"
         android:layout_width="match_parent"
         android:theme="@style/AppTheme.AppBarOverlay"
+        app:elevation="0dp"
         >
 
         <android.support.design.widget.CollapsingToolbarLayout
@@ -24,6 +25,7 @@
             android:layout_height="match_parent"
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
             app:contentScrim="?attr/colorPrimary"
+            app:expandedTitleGravity="center"
             >
 
             <android.support.v7.widget.Toolbar
@@ -45,8 +47,8 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/fab_margin"
         android:src="@drawable/ic_share_24dp"
-        app:layout_anchor="@id/app_bar"
-        app:layout_anchorGravity="bottom|end"
+        app:layout_anchor="@id/card"
+        app:layout_anchorGravity="top|end"
         />
 
 </android.support.design.widget.CoordinatorLayout>

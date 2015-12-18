@@ -45,6 +45,7 @@ android {
 
 dependencies {
     compile libs.supportDesign
+    compile libs.supportCardView
     compile libs.butterKnife
     compile(libs.retrofit) { exclude module: 'okhttp' }
     compile libs.retrofitGsonConverter

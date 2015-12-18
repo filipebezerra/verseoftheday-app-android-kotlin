@@ -9,6 +9,7 @@ ext {
 
     libs = [
             supportDesign                       :   "com.android.support:design:${supportVersion}",
+            supportCardView                     :   "com.android.support:cardview-v7:${supportVersion}",
             butterKnife                         :   "com.jakewharton:butterknife:${butterKnifeVersion}",
             retrofit                            :   "com.squareup.retrofit:retrofit:${retrofitVersion}",
             retrofitGsonConverter               :   "com.squareup.retrofit:converter-gson:${retrofitVersion}",
