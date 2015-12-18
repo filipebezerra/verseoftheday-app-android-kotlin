@@ -17,6 +17,7 @@
         app:cardUseCompatPadding="true"
         app:cardElevation="8dp"
         app:contentPaddingTop="8dp"
+        android:layout_gravity="center"
         >
 
         <RelativeLayout
@@ -40,8 +41,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/verse"
-                android:layout_marginRight="8dp"
-                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="2dp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Title"
                 app:typeface="roboto_thin"
                 tools:text="1 Pedro 2:9"
@@ -51,14 +51,10 @@
                 android:id="@+id/version"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/verse"
-                android:layout_toRightOf="@id/reference"
-                android:layout_toEndOf="@id/reference"
-                android:layout_alignBaseline="@id/reference"
+                android:layout_below="@+id/reference"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
                 app:typeface="roboto_thin"
                 tools:text="Nova Tradução na Linguagem de Hoje 2000"
-                android:gravity="end"
                 />
 
         </RelativeLayout>
