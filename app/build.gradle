@@ -18,8 +18,13 @@ android {
         targetSdkVersion 23
         versionCode 30
         versionName '0.3.0'
+        manifestPlaceholders = [applicationLabel:"@string/app_name"]
     }
     buildTypes {
+        debug {
+            applicationIdSuffix ".dev"
+            manifestPlaceholders = [ applicationLabel:"VofD Dev"]
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
