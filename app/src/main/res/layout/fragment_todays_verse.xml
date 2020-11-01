@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.github.filipebezerra.bible.verseoftheday.ui.todaysverse.TodaysVerseViewModel"
+            />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.todaysverse.TodaysVerseFragment"
+        >
+
+        <include
+            android:id="@+id/include"
+            layout="@layout/list_item_verse"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_normal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:verse="@{viewModel.verseOfTheDay}"
+            app:formattedVerseText="@{viewModel.formattedVerseText}"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

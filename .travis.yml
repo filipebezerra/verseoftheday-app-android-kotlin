@@ -1,27 +1,21 @@
 language: android
-jdk: oraclejdk7
-# Use the Travis Container-Based Infrastructure
-sudo: false
+dist: trusty
 
+before_cache:
+  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
 cache:
   directories:
-    - ${TRAVIS_BUILD_DIR}/gradle/caches/
-    - ${TRAVIS_BUILD_DIR}/gradle/wrapper/dists/
+    - $HOME/.gradle/caches/
+    - $HOME/.gradle/wrapper/
+    - $HOME/.android/build-cache
 
 android:
   components:
     - platform-tools
     - tools
-    - build-tools-23.0.2
-    - android-23
-    # Support library
-    - extra-android-support
-    # Latest artifacts in local repository
-    - extra-google-m2repository
-    - extra-android-m2repository
-
-before_install:
-  - chmod +x gradlew
+    - build-tools-30.0.2
+    - android-30
 
 script:
-  - ./gradlew clean -PdisablePreDex
+  - ./gradlew clean assembleDebug assembleRelease build

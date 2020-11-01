@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_todays_verse"
+    >
+
+    <fragment
+        android:id="@+id/navigation_todays_verse"
+        android:name="com.github.filipebezerra.bible.verseoftheday.ui.todaysverse.TodaysVerseFragment"
+        android:label="@string/title_todays_verse"
+        tools:layout="@layout/fragment_todays_verse"
+        />
+    <fragment
+        android:id="@+id/navigation_verse_history"
+        android:name="com.github.filipebezerra.bible.verseoftheday.ui.versehistory.VerseHistoryFragment"
+        android:label="@string/title_verse_history"
+        tools:layout="@layout/fragment_verse_history"
+        />
+</navigation>

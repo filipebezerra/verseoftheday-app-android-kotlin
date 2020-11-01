@@ -1,23 +1,32 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
-
 buildscript {
+    ext.kotlinVersion = "1.4.10"
+    ext.navigationVersion = '2.3.1'
     repositories {
+        google()
         jcenter()
-        mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:1.5.0'
-        classpath 'me.tatarka:gradle-retrolambda:3.2.4'
+        classpath 'com.android.tools.build:gradle:4.1.0'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
     }
 }
 
 allprojects {
     repositories {
+        google()
         jcenter()
-        mavenCentral()
     }
 }
 
 task clean(type: Delete) {
     delete rootProject.buildDir
+}
+
+ext {
+    lifecycleVersion = '2.2.0'
+    retrofitVersion = '2.9.0'
+    gsonVersion = '2.8.6'
+    okhttpLoggingVersion = '4.9.0'
+    unbescapeVersion = '1.1.6.RELEASE'
 }

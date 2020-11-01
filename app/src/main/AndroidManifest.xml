@@ -1,23 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.github.filipebezerra.bible.verseoftheday"
-    >
+    package="com.github.filipebezerra.bible.verseoftheday">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
+        android:name=".VerseOfTheApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="${applicationLabel}"
+        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
+        android:theme="@style/Base.Theme.VerseOfTheDay"
         >
         <activity
-            android:name=".home.HomeActivity"
+            android:name=".MainActivity"
             android:label="${applicationLabel}"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout"
             >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

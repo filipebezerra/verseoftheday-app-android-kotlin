@@ -1,19 +1,40 @@
 <resources>
 
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="Base.Theme.VerseOfTheDay" parent="Theme.MaterialComponents.Light.DarkActionBar">
+        <!-- app branding color for the app bar -->
         <item name="colorPrimary">@color/colorPrimary</item>
+
+        <!-- darker variant for the status bar and contextual app bars -->
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+
+        <!-- theme UI controls like checkboxes and text fields -->
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:windowBackground">@color/colorPrimary</item>
+
+        <!-- changes the normal state of unchecked checkboxes, etc -->
+        <item name="colorControlNormal">@color/colorControlNormal</item>
+
+        <!-- overrides colorAccent on activated/checked UI controls -->
+        <item name="colorControlActivated">@color/colorControlActivated</item>
+
+        <!-- controls the ripple coloring -->
+        <item name="colorControlHighlight">@color/colorControlHighlight</item>
+
+        <item name="android:colorBackground">#ffffff</item>
+
+        <item name="android:fontFamily">@font/raleway</item>
     </style>
 
-    <style name="AppTheme.NoActionBar">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
+    <style name="Theme.VerseOfTheDay" parent="Base.Theme.VerseOfTheDay" />
+
+    <style name="Theme.VerseOfTheDay.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Widget.App.Button.OutlinedButton.IconOnly" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="iconPadding">0dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:paddingLeft">12dp</item>
+        <item name="android:paddingRight">12dp</item>
+        <item name="android:minWidth">48dp</item>
+        <item name="android:minHeight">48dp</item>
     </style>
-
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
-
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
-
 </resources>
