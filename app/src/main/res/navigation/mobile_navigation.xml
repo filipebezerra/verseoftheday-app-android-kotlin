@@ -10,7 +10,7 @@
         android:id="@+id/navigation_todays_verse"
         android:name="com.github.filipebezerra.bible.verseoftheday.ui.todaysverse.TodaysVerseFragment"
         android:label="@string/title_todays_verse"
-        tools:layout="@layout/fragment_todays_verse"
+        tools:layout="@layout/todays_verse_fragment"
         />
     <fragment
         android:id="@+id/navigation_verse_history"
