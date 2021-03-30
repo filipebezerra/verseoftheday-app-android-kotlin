@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.github.filipebezerra.bible.verseoftheday.ui.versions.VersionsViewModel"
+            />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/versions_root_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.versions.VersionsScreen"
+        >
+
+        <TextView
+            android:id="@+id/title_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/raleway_semibold"
+            android:lineSpacingExtra="5sp"
+            android:padding="@dimen/normal_spacing"
+            android:text="Selecione uma tradução"
+            android:textColor="#2F80ED"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toStartOf="@+id/close_button"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+        <Button
+            android:id="@+id/close_button"
+            style="@style/Widget.VerseOfTheDay.Button.OutlinedButton.IconOnly"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="Fechar"
+            android:minWidth="@dimen/min_size_control"
+            android:minHeight="@dimen/min_size_control"
+            app:icon="@drawable/ic_close_24"
+            app:iconTint="#5F5F5F"
+            app:layout_constraintBottom_toBottomOf="@+id/title_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/title_text"
+            />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/versions_list"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:clipToPadding="false"
+            android:scrollbars="none"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title_text"
+            bind:versions="@{viewModel.versions}"
+            tools:itemCount="4"
+            tools:listitem="@layout/version_list_item"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

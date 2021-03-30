@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/home_screen"
+        android:icon="@drawable/ic_message_24"
+        android:title="@string/title_home"
+        />
 
     <item
-        android:id="@+id/navigation_todays_verse"
-        android:icon="@drawable/ic_article_24dp"
-        android:title="@string/title_todays_verse"
-        />
-    <item
-        android:id="@+id/navigation_verse_history"
-        android:icon="@drawable/ic_history_24dp"
-        android:title="@string/title_verse_history"
+        android:id="@+id/history_screen"
+        android:icon="@drawable/ic_history_24"
+        android:title="@string/title_history"
         />
 </menu>

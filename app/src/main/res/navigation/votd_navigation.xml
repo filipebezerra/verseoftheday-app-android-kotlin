@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/votd_navigation"
+    app:startDestination="@+id/home_screen"
+    >
+    <fragment
+        android:id="@+id/home_screen"
+        android:name="com.github.filipebezerra.bible.verseoftheday.ui.home.HomeScreen"
+        android:label="@string/title_home"
+        tools:layout="@layout/home_screen"
+        />
+
+    <fragment
+        android:id="@+id/history_screen"
+        android:name="com.github.filipebezerra.bible.verseoftheday.ui.history.HistoryScreen"
+        android:label="@string/title_history"
+        tools:layout="@layout/history_screen"
+        />
+
+    <dialog
+        android:id="@+id/versions_screen"
+        android:name="com.github.filipebezerra.bible.verseoftheday.ui.versions.VersionsScreen"
+        tools:layout="@layout/versions_screen"
+        />
+
+    <action
+        android:id="@+id/action_global_versions"
+        app:destination="@id/versions_screen"
+        />
+</navigation>

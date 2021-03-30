@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Versículo do Dia</string>
+    <string name="title_home">Hoje</string>
+    <string name="title_history">Histórico</string>
+    <string name="nav_view_badge_content_description">Você possui um novo verso para ler</string>
+</resources>
