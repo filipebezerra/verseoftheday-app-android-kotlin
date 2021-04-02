@@ -1,10 +1,11 @@
 package com.github.filipebezerra.bible.verseoftheday.ui.home
 
+import androidx.core.app.ShareCompat
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import com.github.filipebezerra.bible.verseoftheday.ui.base.BaseViewModel
 
-class HomeViewModel : ViewModel() {
+class HomeViewModel : BaseViewModel() {
     private val _title = MutableLiveData<String>().apply {
         value = "Versículo \ndo dia"
     }
@@ -24,4 +25,18 @@ class HomeViewModel : ViewModel() {
         value = "Almeida Revista e Corrigida 2009"
     }
     val bibleVersion: LiveData<String> = _bibleVersion
+
+    fun onShareButtonClicked(intentBuilder: ShareCompat.IntentBuilder) {
+        intentBuilder
+            .setType("plain/text")
+            .setText(
+                StringBuilder("Encontrei um verso bíblico para você...")
+                    .append(verse.value!!)
+                    .append(" em ")
+                    .append(reference.value!!)
+                    .appendLine(".")
+                    .append("Leia diversos outros no #VersículoDoDia.")
+            )
+            .startChooser()
+    }
 }
