@@ -6,6 +6,37 @@ plugins {
 }
 
 android {
+    def versionPropsFile = file('version.properties')
+    def versionBuild
+
+    if (versionPropsFile.canRead()) {
+        def versionProps = new Properties()
+        versionProps.load(new FileInputStream(versionPropsFile))
+        versionBuild = versionProps['VERSION_BUILD'].toInteger()
+    } else {
+        throw new FileNotFoundException("Could not read version.properties!")
+    }
+
+    ext.autoIncrementBuildNumber = {
+        if (versionPropsFile.canRead()) {
+            def versionProps = new Properties()
+            versionProps.load(new FileInputStream(versionPropsFile))
+            versionBuild = versionProps['VERSION_BUILD'].toInteger() + 1
+            versionProps['VERSION_BUILD'] = versionBuild.toString()
+            versionProps.store(versionPropsFile.newWriter(), null)
+        } else {
+            throw new FileNotFoundException("Could not read version.properties!")
+        }
+    }
+
+    gradle.taskGraph.whenReady { taskGraph ->
+        if (taskGraph.hasTask(assembleDebug)) {
+            autoIncrementBuildNumber()
+        } else if (taskGraph.hasTask(assembleRelease)) {
+            autoIncrementBuildNumber()
+        }
+    }
+
     compileSdkVersion 30
     buildToolsVersion "30.0.2"
 
@@ -13,8 +44,8 @@ android {
         applicationId "com.github.filipebezerra.bible.verseoftheday"
         minSdkVersion 21
         targetSdkVersion 30
-        versionCode 1
-        versionName "1.0"
+        versionCode versionBuild
+        versionName "1.0.0" + versionBuild.toString()
         manifestPlaceholders = [applicationLabel: "@string/app_name"]
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -48,6 +79,8 @@ android {
 dependencies {
     // # Kotlin support
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$rootProject.kotlin_coroutines_version")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:$rootProject.kotlin_coroutines_version")
 
     // # AndroidX dependencies
 
@@ -66,7 +99,6 @@ dependencies {
     implementation("androidx.navigation:navigation-ui-ktx:$navigation_version")
     // https://developer.android.com/jetpack/androidx/releases/recyclerview
     implementation("androidx.recyclerview:recyclerview:1.1.0")
-    implementation("androidx.legacy:legacy-support-v4:1.0.0")
     coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:1.1.5")
 
     // # MDC dependencies

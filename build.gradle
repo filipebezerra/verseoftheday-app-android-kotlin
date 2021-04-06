@@ -1,12 +1,11 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
-    ext{
+    ext {
         // Kotlin support
-        kotlin_version = "1.4.32"
+        kotlin_version = '1.4.32'
 
         // Androidx dependencies
-        navigation_version = "2.3.4"
-        lifecycle_version = "2.3.1"
+        navigation_version = '2.3.4'
     }
     repositories {
         google()
@@ -28,4 +27,12 @@ allprojects {
 
 task clean(type: Delete) {
     delete rootProject.buildDir
+}
+
+ext {
+    // Kotlin support
+    kotlin_coroutines_version = '1.4.3'
+
+    // Androidx dependencies
+    lifecycle_version = '2.3.1'
 }
