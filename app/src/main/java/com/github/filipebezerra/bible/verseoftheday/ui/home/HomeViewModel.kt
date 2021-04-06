@@ -3,9 +3,9 @@ package com.github.filipebezerra.bible.verseoftheday.ui.home
 import androidx.core.app.ShareCompat
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.github.filipebezerra.bible.verseoftheday.ui.base.BaseViewModel
+import com.github.filipebezerra.bible.verseoftheday.ui.base.ViewModelBase
 
-class HomeViewModel : BaseViewModel() {
+class HomeViewModel : ViewModelBase() {
     private val _title = MutableLiveData<String>().apply {
         value = "Versículo \ndo dia"
     }

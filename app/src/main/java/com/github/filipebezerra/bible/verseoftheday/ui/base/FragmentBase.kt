@@ -8,11 +8,11 @@ import com.github.filipebezerra.bible.verseoftheday.utils.ext.observeNavigationC
 /**
  * Base Fragment to observe on the common LiveData objects
  */
-abstract class BaseFragment : Fragment() {
+abstract class FragmentBase : Fragment() {
     /**
      * Every fragment has to have an instance of a view model that extends from the BaseViewModel
      */
-    abstract val _viewModel: BaseViewModel
+    abstract val _viewModel: ViewModelBase
 
     val navController: NavController by lazy { findNavController() }
 

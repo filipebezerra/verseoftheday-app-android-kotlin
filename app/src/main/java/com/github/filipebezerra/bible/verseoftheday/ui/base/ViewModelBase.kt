@@ -7,6 +7,6 @@ import com.github.filipebezerra.bible.verseoftheday.utils.livedata.SingleLiveEve
 /**
  * Base class for View Models to declare the common LiveData objects in one place
  */
-abstract class BaseViewModel : ViewModel() {
+abstract class ViewModelBase : ViewModel() {
     val navigationCommand: SingleLiveEvent<NavigationCommand> = SingleLiveEvent()
 }

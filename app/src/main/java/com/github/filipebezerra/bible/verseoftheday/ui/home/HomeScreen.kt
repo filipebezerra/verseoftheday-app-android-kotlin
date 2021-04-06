@@ -7,9 +7,9 @@ import android.view.ViewGroup
 import androidx.core.app.ShareCompat
 import androidx.fragment.app.viewModels
 import com.github.filipebezerra.bible.verseoftheday.databinding.HomeScreenBinding
-import com.github.filipebezerra.bible.verseoftheday.ui.base.BaseFragment
+import com.github.filipebezerra.bible.verseoftheday.ui.base.FragmentBase
 
-class HomeScreen : BaseFragment() {
+class HomeScreen : FragmentBase() {
     override val _viewModel: HomeViewModel by viewModels()
 
     override fun onCreateView(
