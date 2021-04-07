@@ -3,4 +3,5 @@
     <string name="title_home">Today</string>
     <string name="title_history">History</string>
     <string name="nav_view_badge_content_description">You have a new verse to read</string>
+    <string name="share_verse">Share verse</string>
 </resources>

@@ -35,4 +35,10 @@ ext {
 
     // Androidx dependencies
     lifecycle_version = '2.3.1'
+
+    // Third-party
+    timber_version = '4.7.1'
+    okhttp3_version = '4.9.1'
+    retrofit_version = '2.9.0'
+    moshi_version = '1.11.0'
 }

@@ -6,11 +6,17 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.app.ShareCompat
 import androidx.fragment.app.viewModels
+import com.github.filipebezerra.bible.verseoftheday.ServiceLocator
 import com.github.filipebezerra.bible.verseoftheday.databinding.HomeScreenBinding
 import com.github.filipebezerra.bible.verseoftheday.ui.base.FragmentBase
+import com.github.filipebezerra.bible.verseoftheday.ui.home.HomeViewModel.Companion.createViewModelFactory
+import java.util.*
 
 class HomeScreen : FragmentBase() {
-    override val _viewModel: HomeViewModel by viewModels()
+
+    override val _viewModel: HomeViewModel by viewModels {
+        createViewModelFactory(ServiceLocator.provideVerseService())
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,

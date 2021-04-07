@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.github.filipebezerra.bible.verseoftheday.databinding.VersionListItemBinding
 import com.github.filipebezerra.bible.verseoftheday.databinding.VersionListItemBinding.inflate
-import com.github.filipebezerra.bible.verseoftheday.models.BibleVersion
+import com.github.filipebezerra.bible.verseoftheday.domain.models.BibleVersion
 import com.github.filipebezerra.bible.verseoftheday.ui.versions.VersionViewHolder.Companion.createFrom
 
 class VersionAdapter : RecyclerView.Adapter<VersionViewHolder>() {

@@ -1,42 +1,42 @@
 package com.github.filipebezerra.bible.verseoftheday.ui.home
 
 import androidx.core.app.ShareCompat
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.*
+import com.github.filipebezerra.bible.verseoftheday.data.remote.VerseService
+import com.github.filipebezerra.bible.verseoftheday.domain.models.Verse
 import com.github.filipebezerra.bible.verseoftheday.ui.base.ViewModelBase
+import com.github.filipebezerra.bible.verseoftheday.utils.ext.asDomainModel
+import kotlinx.coroutines.Dispatchers
 
-class HomeViewModel : ViewModelBase() {
-    private val _title = MutableLiveData<String>().apply {
-        value = "Versículo \ndo dia"
+class HomeViewModel(
+    verseService: VerseService,
+) : ViewModelBase() {
+
+    val verseOfTheDay: LiveData<Verse> = liveData(Dispatchers.IO) {
+        emit(verseService.getVerseOfTheDay("NVI").asDomainModel())
     }
-    val title: LiveData<String> = _title
 
-    private val _verse = MutableLiveData<String>().apply {
-        value = "Deem graças em todas as circunstâncias, pois esta é a vontade de Deus para vocês em Cristo Jesus."
-    }
-    val verse: LiveData<String> = _verse
+    fun onShareButtonClicked(intentBuilder: ShareCompat.IntentBuilder) =
+        verseOfTheDay.value?.let { verse ->
+            intentBuilder
+                .setType("plain/text")
+                .setText(
+                    StringBuilder("Encontrei um verso bíblico para você...")
+                        .append(verse.content)
+                        .append(" em ")
+                        .append(verse.reference)
+                        .appendLine(".")
+                        .append("Leia diversos outros no #VersículoDoDia.")
+                )
+                .startChooser()
+        }
 
-    private val _reference = MutableLiveData<String>().apply {
-        value = "1 Tessalonicenses 5:18"
-    }
-    val reference: LiveData<String> = _reference
-
-    private val _bibleVersion = MutableLiveData<String>().apply {
-        value = "Almeida Revista e Corrigida 2009"
-    }
-    val bibleVersion: LiveData<String> = _bibleVersion
-
-    fun onShareButtonClicked(intentBuilder: ShareCompat.IntentBuilder) {
-        intentBuilder
-            .setType("plain/text")
-            .setText(
-                StringBuilder("Encontrei um verso bíblico para você...")
-                    .append(verse.value!!)
-                    .append(" em ")
-                    .append(reference.value!!)
-                    .appendLine(".")
-                    .append("Leia diversos outros no #VersículoDoDia.")
-            )
-            .startChooser()
+    companion object {
+        @Suppress("UNCHECKED_CAST")
+        fun createViewModelFactory(verseService: VerseService) =
+            object : ViewModelProvider.Factory {
+                override fun <T : ViewModel?> create(modelClass: Class<T>): T =
+                    HomeViewModel(verseService) as T
+            }
     }
 }

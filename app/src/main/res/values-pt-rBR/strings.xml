@@ -4,4 +4,5 @@
     <string name="title_home">Hoje</string>
     <string name="title_history">Histórico</string>
     <string name="nav_view_badge_content_description">Você possui um novo verso para ler</string>
+    <string name="share_verse">Compartilhar verso</string>
 </resources>
