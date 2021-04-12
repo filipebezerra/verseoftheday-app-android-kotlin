@@ -2,18 +2,33 @@ package com.github.filipebezerra.bible.verseoftheday.ui.home
 
 import androidx.core.app.ShareCompat
 import androidx.lifecycle.*
-import com.github.filipebezerra.bible.verseoftheday.data.remote.VerseService
+import com.github.filipebezerra.bible.verseoftheday.data.Result
+import com.github.filipebezerra.bible.verseoftheday.data.repository.VerseRepository
+import com.github.filipebezerra.bible.verseoftheday.data.source.remote.VerseService
 import com.github.filipebezerra.bible.verseoftheday.domain.models.Verse
 import com.github.filipebezerra.bible.verseoftheday.ui.base.ViewModelBase
-import com.github.filipebezerra.bible.verseoftheday.utils.ext.asDomainModel
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class HomeViewModel(
-    verseService: VerseService,
+    verseRepository: VerseRepository
 ) : ViewModelBase() {
 
-    val verseOfTheDay: LiveData<Verse> = liveData(Dispatchers.IO) {
-        emit(verseService.getVerseOfTheDay("NVI").asDomainModel())
+    val verseOfTheDay: LiveData<Verse> = verseRepository.observeVerseOfTheDayByDate().map { result ->
+        if (result is Result.Success) {
+            result.data
+        } else {
+            Verse.empty
+        }
+    }
+
+    init {
+        viewModelScope.launch {
+            withContext(Dispatchers.IO) {
+                verseRepository.getVerseOfTheDay()
+            }
+        }
     }
 
     fun onShareButtonClicked(intentBuilder: ShareCompat.IntentBuilder) =
@@ -33,10 +48,10 @@ class HomeViewModel(
 
     companion object {
         @Suppress("UNCHECKED_CAST")
-        fun createViewModelFactory(verseService: VerseService) =
+        fun createViewModelFactory(verseRepository: VerseRepository) =
             object : ViewModelProvider.Factory {
                 override fun <T : ViewModel?> create(modelClass: Class<T>): T =
-                    HomeViewModel(verseService) as T
+                    HomeViewModel(verseRepository) as T
             }
     }
 }

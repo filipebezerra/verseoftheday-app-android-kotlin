@@ -10,12 +10,11 @@ import com.github.filipebezerra.bible.verseoftheday.ServiceLocator
 import com.github.filipebezerra.bible.verseoftheday.databinding.HomeScreenBinding
 import com.github.filipebezerra.bible.verseoftheday.ui.base.FragmentBase
 import com.github.filipebezerra.bible.verseoftheday.ui.home.HomeViewModel.Companion.createViewModelFactory
-import java.util.*
 
 class HomeScreen : FragmentBase() {
 
     override val _viewModel: HomeViewModel by viewModels {
-        createViewModelFactory(ServiceLocator.provideVerseService())
+        createViewModelFactory(ServiceLocator.provideVerseRepository(requireContext().applicationContext))
     }
 
     override fun onCreateView(

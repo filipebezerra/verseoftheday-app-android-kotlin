@@ -1,8 +1,14 @@
 package com.github.filipebezerra.bible.verseoftheday
 
-import androidx.annotation.VisibleForTesting
+import android.content.Context
 import com.github.filipebezerra.bible.verseoftheday.BuildConfig.BASE_API_URL
-import com.github.filipebezerra.bible.verseoftheday.data.remote.VerseService
+import com.github.filipebezerra.bible.verseoftheday.data.repository.DefaultVerseRepository
+import com.github.filipebezerra.bible.verseoftheday.data.repository.VerseRepository
+import com.github.filipebezerra.bible.verseoftheday.data.source.VerseDataSource
+import com.github.filipebezerra.bible.verseoftheday.data.source.local.VerseLocalDataSource
+import com.github.filipebezerra.bible.verseoftheday.data.source.local.VotdDatabase
+import com.github.filipebezerra.bible.verseoftheday.data.source.remote.VerseRemoteDataSource
+import com.github.filipebezerra.bible.verseoftheday.data.source.remote.VerseService
 import com.squareup.moshi.Moshi
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -34,15 +40,37 @@ object ServiceLocator {
     }
 
     @Volatile
-    var verseService: VerseService? = null
-        @VisibleForTesting set
+    private var verseService: VerseService? = null
 
-    fun provideVerseService(): VerseService = synchronized(lock) {
-        verseService ?: createVerseService()
-    }
+    @Volatile
+    private var database: VotdDatabase? = null
 
-    private fun createVerseService(): VerseService =
-        verseService ?: retrofitBuilder.build().create(VerseService::class.java).also {
-            verseService = it
+    @Volatile
+    private var verseRepository: VerseRepository? = null
+
+    fun provideVerseRepository(context: Context): VerseRepository =
+        verseRepository ?: synchronized(lock) {
+            verseRepository ?: DefaultVerseRepository(
+                getVerseLocalDataSource(context),
+                getVerseRemoteDataSource(context)
+            ).also { verseRepository = it }
+        }
+
+    private fun getVerseLocalDataSource(context: Context): VerseDataSource =
+        getDatabase(context).run { VerseLocalDataSource(verseDao()) }
+
+    private fun getDatabase(context: Context) =
+        database ?: synchronized(lock) {
+            database ?: VotdDatabase.getDatabase(context).also { database = it }
+        }
+
+    private fun getVerseRemoteDataSource(context: Context): VerseDataSource =
+        getDatabase(context).run { VerseRemoteDataSource(getVerseService()) }
+
+    private fun getVerseService(): VerseService =
+        verseService ?: synchronized(lock) {
+            verseService ?: retrofitBuilder.build().create(VerseService::class.java).also {
+                verseService = it
+            }
         }
 }

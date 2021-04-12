@@ -1,15 +1,16 @@
 package com.github.filipebezerra.bible.verseoftheday.utils.ext
 
-import com.github.filipebezerra.bible.verseoftheday.data.source.remote.VerseTransferObject
+import com.github.filipebezerra.bible.verseoftheday.data.source.local.VerseEntity
 import com.github.filipebezerra.bible.verseoftheday.domain.models.Verse
 
-fun VerseTransferObject.asDomainModel() = Verse(
+fun Verse.asEntity() = VerseEntity(
+    id = id,
     content = content,
     day = day,
     month = month,
     permalink = permalink,
     reference = reference,
     version = version,
-    versionId = version_id,
+    versionId = versionId,
     year = year,
 )

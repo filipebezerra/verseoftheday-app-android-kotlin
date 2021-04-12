@@ -1,18 +1,26 @@
 package com.github.filipebezerra.bible.verseoftheday.domain.models
 
 data class Verse(
-    val audioLink: String,
+    val id: String = "",
     val content: String,
-    val copyright: String,
-    val copyrightLink: String,
-    val day: String,
-    val englishReference: String,
-    val merchandising: String,
-    val month: String,
+    val day: Int,
+    val month: Int,
     val permalink: String,
     val reference: String,
-    val text: String,
     val version: String,
     val versionId: String,
-    val year: String,
-)
+    val year: Int,
+) {
+    companion object {
+        val empty: Verse = Verse(
+            content = "",
+            day = -1,
+            month = -1,
+            permalink = "",
+            reference = "",
+            version = "",
+            versionId = "",
+            year = -1,
+        )
+    }
+}

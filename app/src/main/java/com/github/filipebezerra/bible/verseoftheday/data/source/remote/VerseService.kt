@@ -1,4 +1,4 @@
-package com.github.filipebezerra.bible.verseoftheday.data.remote
+package com.github.filipebezerra.bible.verseoftheday.data.source.remote
 
 import retrofit2.http.GET
 import retrofit2.http.Path
