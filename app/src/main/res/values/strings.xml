@@ -1,8 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Verse of the Day</string>
-    <string name="title_todays_verse">Today</string>
-    <string name="title_verse_history">History</string>
-    <string name="action_more">Mais opções</string>
-    <string name="action_share">Compartilhar verso</string>
+    <string name="title_home">Today</string>
+    <string name="title_history">History</string>
 </resources>

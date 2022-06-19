@@ -3,19 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_todays_verse"
+    app:startDestination="@+id/navigation_home"
     >
 
     <fragment
-        android:id="@+id/navigation_todays_verse"
-        android:name="com.github.filipebezerra.bible.verseoftheday.ui.todaysverse.TodaysVerseFragment"
-        android:label="@string/title_todays_verse"
-        tools:layout="@layout/todays_verse_fragment"
+        android:id="@+id/navigation_home"
+        android:name="com.github.filipebezerra.bible.verseoftheday.ui.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/home_fragment"
         />
+
     <fragment
-        android:id="@+id/navigation_verse_history"
-        android:name="com.github.filipebezerra.bible.verseoftheday.ui.versehistory.VerseHistoryFragment"
-        android:label="@string/title_verse_history"
-        tools:layout="@layout/fragment_verse_history"
+        android:id="@+id/navigation_dashboard"
+        android:name="com.github.filipebezerra.bible.verseoftheday.ui.dashboard.DashboardFragment"
+        android:label="@string/title_history"
+        tools:layout="@layout/fragment_dashboard"
         />
 </navigation>
