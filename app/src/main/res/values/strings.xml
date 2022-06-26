@@ -1,5 +1,10 @@
 <resources>
+
     <string name="app_name">Verse of the Day</string>
     <string name="title_home">Today</string>
     <string name="title_history">History</string>
+    <string name="share_verse">Share verse</string>
+    <string name="menu_select_bible_version">Selecionar uma tradução</string>
+    <string name="menu_set_remember_to_read">Definir lembrete</string>
+
 </resources>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Widget.VerseOfTheDay.Button.OutlinedButton.IconOnly"
+        parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="iconPadding">0dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:paddingLeft">12dp</item>
+        <item name="android:paddingRight">12dp</item>
+        <item name="android:minWidth">48dp</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="borderWidth">0dp</item>
+        <item name="iconTint">@null</item>
+        <item name="android:background">?attr/actionBarItemBackground</item>
+    </style>
+
+    <style name="Widget.VerseOfTheDay.Toolbar" parent="Widget.MaterialComponents.Toolbar.Primary">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.VerseOfTheDay.Toolbar</item>
+        <item name="titleTextColor">@color/very_dark_gray</item>
+    </style>
+
+    <style name="ThemeOverlay.VerseOfTheDay.Toolbar" parent="">
+        <item name="colorPrimary">@color/very_light_gray</item>
+    </style>
+
+    <style name="TextAppearance.VerseOfTheDay.BottomNavigationItem" parent="TextAppearance.MaterialComponents.Caption">
+        <item name="fontFamily">@font/raleway_medium</item>
+    </style>
+
+</resources>

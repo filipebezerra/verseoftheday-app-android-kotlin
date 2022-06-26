@@ -1,9 +1,10 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
+
     <!-- Base application theme. -->
-    <style name="Theme.VerseOfTheDay" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.VerseOfTheDay" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorPrimary">@color/bright_blue</item>
+        <item name="colorPrimaryVariant">@color/very_light_gray</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
@@ -12,5 +13,9 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <item name="android:colorBackground">@color/very_light_gray</item>
+        <item name="colorOnSurface">@color/very_dark_gray</item>
+        <item name="toolbarStyle">@style/Widget.VerseOfTheDay.Toolbar</item>
     </style>
+
 </resources>

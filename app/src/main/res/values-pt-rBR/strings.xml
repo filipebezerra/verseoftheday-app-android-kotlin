@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <string name="app_name">Versículo do Dia</string>
     <string name="title_home">Hoje</string>
     <string name="title_history">History</string>
+    <string name="share_verse">Compartilhar verso</string>
+    <string name="menu_select_bible_version">Selecionar uma tradução</string>
+    <string name="menu_set_remember_to_read">Definir lembrete</string>
+
 </resources>

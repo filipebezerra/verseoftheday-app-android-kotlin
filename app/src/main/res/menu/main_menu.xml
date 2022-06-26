@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <item
+        android:id="@+id/action_select_bible_version"
+        android:icon="@drawable/ic_menu_book_24"
+        android:title="@string/menu_select_bible_version"
+        android:contentDescription="@string/menu_select_bible_version"
+        app:showAsAction="ifRoom"
+        />
+
+    <item
+        android:id="@+id/action_set_remember_to_read"
+        android:icon="@drawable/ic_alarm_24"
+        android:title="@string/menu_set_remember_to_read"
+        android:contentDescription="@string/menu_select_bible_version"
+        app:showAsAction="ifRoom"
+        />
+</menu>
