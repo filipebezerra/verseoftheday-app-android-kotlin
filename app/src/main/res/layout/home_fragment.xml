@@ -4,19 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     >
 
-    <data>
-
-        <variable
-            name="viewModel"
-            type="com.github.filipebezerra.bible.verseoftheday.ui.home.HomeViewModel"
-            />
-    </data>
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/home_root_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="@dimen/ui_spacing_32dp"
+        android:padding="@dimen/scaled_screen_32dp"
         tools:context=".ui.home.HomeFragment"
         >
 
@@ -25,61 +17,57 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/raleway_bold"
-            android:lineSpacingExtra="3sp"
-            android:text="@{viewModel.title}"
+            android:lineSpacingExtra="@dimen/scaled_font_3sp"
             android:textColor="#2F80ED"
-            android:textSize="30sp"
+            android:textSize="@dimen/scaled_font_30sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="Versículo \ndo dia"
+            tools:text="@string/app_name"
             />
 
         <TextView
             android:id="@+id/verse_text"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/ui_spacing_40dp"
+            android:layout_marginTop="@dimen/scaled_screen_40dp"
             android:fontFamily="@font/raleway_semibold"
-            android:lineSpacingExtra="3sp"
-            android:text="@{viewModel.verseOfTheDay.content}"
+            android:lineSpacingExtra="@dimen/scaled_font_3sp"
             android:textColor="#000000"
-            android:textSize="18sp"
+            android:textSize="@dimen/scaled_font_18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/title_text"
-            tools:text="Deem graças em todas as circunstâncias, pois esta é a vontade de Deus para vocês em Cristo Jesus."
+            tools:text="@sample/home.json/home/verse"
             />
 
         <TextView
             android:id="@+id/reference_text"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/ui_spacing_16dp"
+            android:layout_marginEnd="@dimen/scaled_screen_16dp"
             android:fontFamily="@font/raleway_medium"
-            android:lineSpacingExtra="2dp"
-            android:text="@{viewModel.verseOfTheDay.reference}"
+            android:lineSpacingExtra="@dimen/scaled_font_2sp"
             android:textColor="#828282"
-            android:textSize="14sp"
+            android:textSize="@dimen/scaled_font_14sp"
             app:layout_constraintEnd_toStartOf="@+id/share_button"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/share_button"
-            tools:text="1 Tessalonicenses 5:18"
+            tools:text="@sample/home.json/home/reference"
             />
 
         <TextView
             android:id="@+id/bible_version_text"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/ui_spacing_4dp"
+            android:layout_marginTop="@dimen/scaled_screen_4dp"
             android:fontFamily="@font/raleway_medium"
-            android:lineSpacingExtra="2dp"
-            android:text="@{viewModel.verseOfTheDay.version}"
+            android:lineSpacingExtra="@dimen/scaled_font_2sp"
             android:textColor="#828282"
-            android:textSize="14sp"
+            android:textSize="@dimen/scaled_font_14sp"
             app:layout_constraintEnd_toEndOf="@+id/reference_text"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/reference_text"
-            tools:text="Almeida Revista e Corrigida 2009"
+            tools:text="@sample/home.json/home/bible_version"
             />
 
         <Button
@@ -87,7 +75,7 @@
             style="@style/Widget.VerseOfTheDay.Button.OutlinedButton.IconOnly"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/ui_spacing_16dp"
+            android:layout_marginTop="@dimen/scaled_screen_16dp"
             android:contentDescription="@string/share_verse"
             android:minWidth="@dimen/min_button_size"
             android:minHeight="@dimen/min_button_size"

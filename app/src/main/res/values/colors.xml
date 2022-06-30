@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <color name="purple_200">#FFBB86FC</color>
-    <color name="bright_blue">#FF2F80ED</color>
-    <color name="purple_700">#FF3700B3</color>
-    <color name="teal_200">#FF03DAC5</color>
-    <color name="teal_700">#FF018786</color>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <!-- region Primary brand colors -->
+    <color name="color_primary">@color/bright_blue</color>
+    <color name="color_primary_variant">@color/very_light_gray</color>
+    <color name="color_on_primary">@color/white</color>
+    <!-- endregion -->
 
-    <color name="very_light_gray">#FFF2F2F2</color>
-    <color name="very_dark_gray">#FF333333</color>
+    <!-- region Secondary brand colors -->
+    <color name="color_secondary">@color/teal_200</color>
+    <color name="color_secondary_variant">@color/teal_700</color>
+    <color name="color_on_secondary">@color/black</color>
+    <!-- endregion -->
+
+    <!-- region App theme customization colors -->
+    <color name="color_background">@color/very_light_gray</color>
+    <color name="color_on_surface">@color/very_dark_gray</color>
+    <!-- endregion -->
 
 </resources>

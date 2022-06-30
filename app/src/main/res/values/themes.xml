@@ -1,21 +1,29 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
 
     <!-- Base application theme. -->
     <style name="Theme.VerseOfTheDay" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/bright_blue</item>
-        <item name="colorPrimaryVariant">@color/very_light_gray</item>
-        <item name="colorOnPrimary">@color/white</item>
-        <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_700</item>
-        <item name="colorOnSecondary">@color/black</item>
-        <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
-        <!-- Customize your theme here. -->
-        <item name="android:colorBackground">@color/very_light_gray</item>
-        <item name="colorOnSurface">@color/very_dark_gray</item>
+        <!-- region Primary brand color -->
+        <item name="colorPrimary">@color/color_primary</item>
+        <item name="colorPrimaryVariant">@color/color_primary_variant</item>
+        <item name="colorOnPrimary">@color/color_on_primary</item>
+        <!-- endregion -->
+
+        <!-- region Secondary brand color -->
+        <item name="colorSecondary">@color/color_secondary</item>
+        <item name="colorSecondaryVariant">@color/color_secondary_variant</item>
+        <item name="colorOnSecondary">@color/color_on_secondary</item>
+        <!-- endregion -->
+
+        <!-- region Status bar color -->
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <!-- endregion -->
+
+        <!-- region App theme customization -->
+        <item name="android:colorBackground">@color/color_background</item>
+        <item name="colorOnSurface">@color/color_on_surface</item>
         <item name="toolbarStyle">@style/Widget.VerseOfTheDay.Toolbar</item>
+        <item name="bottomNavigationStyle">@style/Widget.VerseOfTheDay.BottomNavigationView</item>
+        <!-- endregion -->
     </style>
 
 </resources>

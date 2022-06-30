@@ -1,0 +1,8 @@
+{
+  "comment": "Sample home screen data model for use with tools:... attributes in layouts, primarily list items",
+  "home": {
+    "verse": "Deem graças em todas as circunstâncias, pois esta é a vontade de Deus para vocês em Cristo Jesus.",
+    "reference": "1 Tessalonicenses 5:18",
+    "bible_version": "Almeida Revista e Corrigida 2009"
+  }
+}

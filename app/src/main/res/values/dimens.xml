@@ -1,11 +1,22 @@
 <resources>
 
-    <dimen name="ui_spacing_4dp">4dp</dimen>
-    <dimen name="ui_spacing_16dp">16dp</dimen>
-    <dimen name="ui_spacing_32dp">32dp</dimen>
-    <dimen name="ui_spacing_40dp">40dp</dimen>
+    <!-- region scaled up or down by a factor appropriate for the screen's dpi -->
+    <dimen name="scaled_screen_4dp">4dp</dimen>
+    <dimen name="scaled_screen_16dp">16dp</dimen>
+    <dimen name="scaled_screen_32dp">32dp</dimen>
+    <dimen name="scaled_screen_40dp">40dp</dimen>
+    <!-- endregion -->
 
-    <!-- custom components -->
+    <!-- region scaled up or down also by  the user's font size preference -->
+    <dimen name="scaled_font_3sp">3sp</dimen>
+    <dimen name="scaled_font_30sp">30sp</dimen>
+    <dimen name="scaled_font_18sp">18sp</dimen>
+    <dimen name="scaled_font_2sp">2dp</dimen>
+    <dimen name="scaled_font_14sp">14sp</dimen>
+    <!-- endregion -->
+
+    <!-- region custom components -->
     <dimen name="min_button_size">48dp</dimen>
-
+    <dimen name="no_elevation">0dp</dimen>
+    <!-- endregion -->
 </resources>

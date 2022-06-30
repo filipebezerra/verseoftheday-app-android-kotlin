@@ -1,4 +1,4 @@
-package com.github.filipebezerra.bible.verseoftheday.ui.home
+package com.github.filipebezerra.bible.verseoftheday.presentation.home
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

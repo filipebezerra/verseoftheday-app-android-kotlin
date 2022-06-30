@@ -24,8 +24,25 @@
         <item name="colorPrimary">@color/very_light_gray</item>
     </style>
 
+    <style name="Widget.VerseOfTheDay.BottomNavigationView"
+        parent="Widget.MaterialComponents.BottomNavigationView.Colored">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.VerseOfTheDay.BottomNavigationView</item>
+    </style>
+
+    <style name="ThemeOverlay.VerseOfTheDay.BottomNavigationView" parent="">
+        <item name="elevation">@dimen/no_elevation</item>
+        <item name="android:background">?android:attr/windowBackground</item>
+        <item name="backgroundTint">?android:attr/windowBackground</item>
+        <item name="itemIconTint">@drawable/navigation_item_selector</item> // default ?attr/colorOnSurface at 60%
+        <item name="itemTextAppearanceInactive">@style/TextAppearance.VerseOfTheDay.BottomNavigationItem</item>
+        <item name="itemTextAppearanceActive">@style/TextAppearance.VerseOfTheDay.BottomNavigationItem</item>
+        <item name="itemTextColor">@drawable/navigation_item_selector</item> // default ?attr/colorOnSurface at 60%
+    </style>
+
     <style name="TextAppearance.VerseOfTheDay.BottomNavigationItem" parent="TextAppearance.MaterialComponents.Caption">
         <item name="fontFamily">@font/raleway_medium</item>
+        <item name="android:fontFamily">@font/raleway_medium</item>
+        <item name="android:textSize">14sp</item>
     </style>
 
 </resources>

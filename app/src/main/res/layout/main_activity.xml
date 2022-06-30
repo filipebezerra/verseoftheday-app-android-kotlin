@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     >
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -11,7 +12,7 @@
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:elevation="0dp"
+            app:elevation="@dimen/no_elevation"
             >
 
             <com.google.android.material.appbar.MaterialToolbar
@@ -38,13 +39,16 @@
                 android:layout_marginStart="0dp"
                 android:layout_marginEnd="0dp"
                 android:background="?android:attr/windowBackground"
+                app:backgroundTint="?android:attr/windowBackground"
+                app:elevation="@dimen/no_elevation"
+                app:itemIconTint="@drawable/navigation_item_selector"
+                app:itemTextAppearanceActive="@style/TextAppearance.VerseOfTheDay.BottomNavigationItem"
+                app:itemTextAppearanceInactive="@style/TextAppearance.VerseOfTheDay.BottomNavigationItem"
+                app:itemTextColor="@drawable/navigation_item_selector"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:menu="@menu/bottom_nav_menu"
-                app:elevation="0dp"
-                app:itemTextAppearanceActive="@style/TextAppearance.VerseOfTheDay.BottomNavigationItem"
-                app:itemTextAppearanceInactive="@style/TextAppearance.VerseOfTheDay.BottomNavigationItem"
                 />
 
             <fragment
@@ -58,6 +62,7 @@
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:navGraph="@navigation/mobile_navigation"
+                tools:ignore="FragmentTagUsage"
                 />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
